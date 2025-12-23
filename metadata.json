@@ -1,5 +1,8 @@
 {
   "name": "Blue Shark AI",
-  "description": "A powerful multi-model AI assistant specializing in homework, coding, and ethical cybersecurity analysis.",
-  "requestFramePermissions": []
+  "description": "A powerful multi-model AI assistant specializing in video, image generation, coding, and security.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
 }

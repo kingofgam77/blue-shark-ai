@@ -1,10 +1,12 @@
+
 export type Role = 'user' | 'model';
 
 export enum AppMode {
   HOMEWORK = 'HOMEWORK',
   CODING = 'CODING',
   SECURITY = 'SECURITY',
-  SHARK_TANK = 'SHARK_TANK', // Dual model mode
+  SHARK_TANK = 'SHARK_TANK', // Dual Mode replacing Fast Chat
+  PRO_CHAT = 'PRO_CHAT', // Gemini 3 Pro
 }
 
 export interface MessagePart {
@@ -16,9 +18,18 @@ export interface ChatMessage {
   role: Role;
   content: string;
   timestamp: number;
-  // For Shark Tank mode (multi-result)
-  secondaryContent?: string; 
-  isMultiModel?: boolean;
+  image?: {
+    data: string; // base64
+    mimeType: string;
+  };
+}
+
+export interface ChatSession {
+  id: string;
+  title: string;
+  messages: ChatMessage[];
+  mode: AppMode;
+  timestamp: number;
 }
 
 export interface ModelConfig {
